@@ -1,0 +1,16 @@
+ext {
+    guiceVesrion = '4.2.0'
+    libraries = [
+            hikariConnectionPool: "com.zaxxer:HikariCP:3.3.0",
+            h2                  : "com.h2database:h2:1.4.197",
+            persistanceApi      : "javax.persistence:persistence-api:1.0.2",
+            javalin             : "io.javalin:javalin:2.6.0",
+            guice               : "com.google.inject:guice:${guiceVesrion}",
+            guiceMultibindings  : "com.google.inject.extensions:guice-multibindings:${guiceVesrion}",
+            lombok              : "org.projectlombok:lombok:1.18.4",
+            jacksonDatabind     : "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+            slf4jSimple         : "org.slf4j:slf4j-simple:1.7.25",
+            jbCrypt             : "org.mindrot:jbcrypt:0.4",
+            jUnit               : "junit:junit:4.12"
+    ]
+}

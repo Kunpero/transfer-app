@@ -1,0 +1,51 @@
+group 'rs.mladost.transfer'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:4.0.3'
+    }
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'rs.mladost.transfer.App'
+    }
+}
+
+shadowJar {
+    baseName = 'transfer'
+    classifier = null
+    version = null
+    manifest {
+        inheritFrom project.tasks.jar.manifest
+    }
+}
+
+apply from: "./libraries.gradle"
+
+dependencies {
+    compile libraries.hikariConnectionPool
+    compile libraries.h2
+    compile libraries.persistanceApi
+    compile libraries.javalin
+    compile libraries.guice
+    compile libraries.guiceMultibindings
+    compile libraries.lombok
+    compile libraries.jacksonDatabind
+    compile libraries.slf4jSimple
+    compile libraries.jbCrypt
+    testCompile libraries.jUnit
+}
