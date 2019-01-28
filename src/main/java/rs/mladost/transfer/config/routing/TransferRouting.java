@@ -1,6 +1,7 @@
 package rs.mladost.transfer.config.routing;
 
 import io.javalin.Javalin;
+import rs.mladost.transfer.api.rest.controller.TransferController;
 import rs.mladost.transfer.api.rest.controller.TransferControllerImpl;
 
 import javax.inject.Inject;
@@ -10,7 +11,7 @@ import static io.javalin.apibuilder.ApiBuilder.path;
 import static io.javalin.apibuilder.ApiBuilder.post;
 
 @Singleton
-public class TransferRouting extends Routing<TransferControllerImpl> {
+public class TransferRouting extends Routing<TransferController> {
     private Javalin javalin;
 
     @Inject
